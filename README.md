@@ -1,10 +1,10 @@
 * Arduino PID Library - Version 2.0
-* v1.0 by Brett Beauregard <br3ttb@gmail.com> brettbeauregard.com
-* v2.0 by Dan Barzilay <barzilaydn@gmail.com>
+ - v1.0 by Brett Beauregard <br3ttb@gmail.com> brettbeauregard.com
+ - v2.0 by Dan Barzilay <barzilaydn@gmail.com>
 
 * v2.0 Changes:
-*   - Added support for PIDMaster
-*   - Improved Anti integral wind-up.
+ - Added support for PIDMaster
+ - Improved Anti integral wind-up.
 
 * This Library is licensed under a GPLv3 License
 
