@@ -257,3 +257,51 @@ int                    PID::GetMode() volatile          { return inAuto;        
 bool                   PID::GetDirection() volatile     { return controllerDirection; }
 bool                   PID::GetMasterAttached()         { return masterAttached;      }
 volatile unsigned long PID::GetSampleTime() volatile    { return sampleTime;          }
+
+/* *myInput Setter & Getter */
+void PID::SetInput(volatile double i) volatile
+{ 
+    uint8_t sreg = intDisable();
+    *myInput = i;
+    intRestore(sreg);
+}
+
+volatile double PID::GetInput() volatile
+{
+    uint8_t sreg = intDisable();
+    volatile double i = *myInput;
+    intRestore(sreg);
+    return i;
+}
+
+/* *myOutput Setter & Getter */
+void PID::SetOutput(double o) volatile
+{ 
+    uint8_t sreg = intDisable();
+    *myOutput = o;
+    intRestore(sreg);
+}
+
+volatile double PID::GetOutput() volatile
+{
+    uint8_t sreg = intDisable();
+    volatile double o = *myOutput;
+    intRestore(sreg);
+    return o;
+}
+
+/* *mySetpoint Setter & Getter */
+void PID::SetSetpoint(double s) volatile
+{ 
+    uint8_t sreg = intDisable();
+    *mySetpoint = s;
+    intRestore(sreg);
+}
+
+volatile double PID::GetSetpoint() volatile
+{
+    uint8_t sreg = intDisable();
+    volatile double s = *mySetpoint;
+    intRestore(sreg);
+    return s;
+}

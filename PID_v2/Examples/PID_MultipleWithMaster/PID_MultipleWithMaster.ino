@@ -21,13 +21,13 @@ PIDMaster masterPID (&RightPID, &LeftPID, &TopPID);
 void setup()
 {
     //initialize the variables we're linked to
-    Right_I = analogRead(0);
-    Left_I = analogRead(1);
-    Top_I = analogRead(2);
+    RightPID.SetInput(analogRead(0));
+    LeftPID.SetInput(analogRead(1));
+    TopPID.SetInput(analogRead(2));
     
-    Right_S = 45;
-    Left_S = 15;
-    Top_S = 0;
+    RightPID.SetSetpoint(45);
+    LeftPID.SetSetpoint(15);
+    TopPID.SetSetpoint(0);
     
     RightPID.SetOutputLimits(0,255);
     LeftPID.SetOutputLimits(0,255);
@@ -37,13 +37,13 @@ void setup()
 
 void loop()
 {
-    Right_I = analogRead(0);
-    Left_I = analogRead(1);
-    Top_I = analogRead(2);
+    RightPID.SetInput(analogRead(0));
+    LeftPID.SetInput(analogRead(1));
+    TopPID.SetInput(analogRead(2));
     
-    analogWrite(3, Right_O);
-    analogWrite(4, Left_O);
-    analogWrite(5, Top_O);
+    analogWrite(3, RightPID.GetOutput());
+    analogWrite(4, LeftPID.GetOutput());
+    analogWrite(5, TopPID.GetOutput());
 }
 
 

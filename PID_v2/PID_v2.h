@@ -59,10 +59,19 @@ public:
     double GetKp();               // These functions query the pid for interal values.
     double GetKi();               //  they were created mainly for the pid front-end,
     double GetKd();               // where it's important to know what is actually 
-    int GetMode() volatile;                //  inside the PID.
-    bool GetDirection() volatile;           
+    int GetMode() volatile;       //  inside the PID.
     volatile unsigned long GetSampleTime() volatile;
     bool GetMasterAttached();
+    bool GetDirection() volatile;
+    
+    // Input, Output, Setpoint getters and setters;
+    volatile double GetInput() volatile;
+    volatile double GetOutput() volatile;
+    volatile double GetSetpoint() volatile;
+    void SetInput(volatile double) volatile;
+    void SetOutput(volatile double) volatile;
+    void SetSetpoint(volatile double) volatile;
+    bool SetDirection(volatile double) volatile;  
     
 private:
     void Initialize();
