@@ -20,7 +20,10 @@ PIDMaster masterPID (&RightPID, &LeftPID, &TopPID);
 
 void setup()
 {
-    //initialize the variables we're linked to
+    // When using PIDMaster - Input, Output and Setpoint must be set and get using these setter / getter methods!
+    // But compatibility with PID_v1 code remains when not using the PIDMaster.
+    
+    //initialize the variables we're linked to.
     RightPID.SetInput(analogRead(0));
     LeftPID.SetInput(analogRead(1));
     TopPID.SetInput(analogRead(2));
